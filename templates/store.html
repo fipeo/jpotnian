@@ -1,0 +1,78 @@
+     <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap">
+
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<h1>Tienda de Subastas</h1>
+<div class="pagination">
+    {% if products.has_prev %}
+        <a href="{{ url_for('store', page=products.prev_num) }}">Anterior</a>
+    {% endif %}
+    {% if products.has_next %}
+        <a href="{{ url_for('store', page=products.next_num) }}">Siguiente</a>
+    {% endif %}
+</div>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>El chat</h1>
+            <nav>
+                <a href="/">Inicio</a>
+                <a href="/about">Acerca de</a>
+                <a href="/contact">Contacto</a>
+                {% if 'user_id' in session %}
+                    <a href="/dashboard">Dashboard</a>
+                    <a href="/logout">Cerrar Sesión</a>
+                {% else %}
+                    <a href="/login">Iniciar Sesión</a>
+                    <a href="/register">Registrarse</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+    <!-- Publicidad Inferior -->
+<section class="ad-space">
+    <img src="{{ ad_image_1 }}" alt="Publicidad 1">
+    <img src="{{ ad_image_2 }}" alt="Publicidad 2">
+    <img src="{{ ad_image_3 }}" alt="Publicidad 3">
+</section>
+
+
+<div class="products">
+    {% for product in products %}
+        <div class="product">
+            <img src="{{ url_for('static', filename=product.image_url) }}" >
+            <div class='produc-tname'> {{product.name}}</div>
+            <div class="seller-info">Vendedor: {{ product.seller_id }}</div>
+            <div class="description"> Descripción: {{ product.description }}</div>
+            <div class="price">Precio: $ {{ product.price }}</div>
+            <div class="bid_count">Ofertas realizadas {{ product.bid_count }}</div>
+            <form action="{{ url_for('bid', product_id=product.id) }}" method="post">
+                <button CLASS="button" type="submit">Ofertar</button>
+            </form>
+        </div>
+    {% endfor %}
+</div>
+
+<div class="pagination">
+    {% if has_prev %}
+        <a href="{{ url_for('store', page=page-1) }}">Anterior</a>
+    {% endif %}
+    {% if has_next %}
+        <a href="{{ url_for('store', page=page+1) }}">Siguiente</a>
+    {% endif %}
+</div>
+    <!-- Publicidad Inferior -->
+<section class="ad-space">
+    <img src="{{ ad_image_1 }}" alt="Publicidad 1">
+    <img src="{{ ad_image_2 }}" alt="Publicidad 2">
+    <img src="{{ ad_image_3 }}" alt="Publicidad 3">
+</section>
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 jpotnian. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

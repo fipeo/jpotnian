@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de la Búsqueda</title>
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap">
+
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Resultados para "{{ program.name }}"</h1>
+            <nav>
+                <a href="/">Inicio</a>
+                <a href="/about">Acerca de</a>
+                <a href="/contact">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+<!-- Publicidad Inferior -->
+<section class="ad-space">
+    <img src="{{ ad_image_1 }}" alt="Publicidad 1">
+    <img src="{{ ad_image_2 }}" alt="Publicidad 2">
+    <img src="{{ ad_image_3 }}" alt="Publicidad 3">
+</section>
+
+    <section class="results-section">
+        <div class="card">
+            <h2>Especificaciones de tu Sistema</h2>
+            <p>RAM: {{ ram }} GB</p>
+            <p>Procesador: {{ processor }}</p>
+            <p>Espacio en Disco: {{ disk }} GB</p>
+        </div>
+
+        <div class="card">
+            <h2>Requisitos Mínimos del Programa</h2>
+            <p>RAM: {{ program.min_ram }} GB</p>
+            <p>Procesador: {{ program.min_processor }}</p>
+            <p>Espacio en Disco: {{ program.min_disk_space }} GB</p>
+            <p>
+                {% if meets_min %}
+                    <span style="color: green;">Tu sistema cumple con los requisitos mínimos.</span>
+                {% else %}
+                    <span style="color: red;">Tu sistema no cumple con los requisitos mínimos.</span>
+                {% endif %}
+            </p>
+        </div>
+
+        {% if program.recommended_ram %}
+            <div class="card">
+                <h2>Requisitos Recomendados del Programa</h2>
+                <p>RAM: {{ program.recommended_ram }} GB</p>
+                <p>Procesador: {{ program.recommended_processor }}</p>
+                <p>Espacio en Disco: {{ program.recommended_disk_space }} GB</p>
+                <p>
+                    {% if meets_rec %}
+                        <span style="color: green;">Tu sistema cumple con los requisitos recomendados.</span>
+                    {% else %}
+                        <span style="color: orange;">Tu sistema no cumple con los requisitos recomendados.</span>
+                    {% endif %}
+                </p>
+            </div>
+        {% endif %}
+    </section>
+
+<!-- Publicidad Inferior -->
+<section class="ad-space">
+    <img src="{{ ad_image_1 }}" alt="Publicidad 1">
+    <img src="{{ ad_image_2 }}" alt="Publicidad 2">
+    <img src="{{ ad_image_3 }}" alt="Publicidad 3">
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 jpotnian. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

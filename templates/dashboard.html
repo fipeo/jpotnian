@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - jpotnian</title>
+     <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap">
+
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Dashboard</h1>
+            <nav>
+                <a href="/">Inicio</a>
+                <a href="/about">Acerca de</a>
+                <a href="/contact">Contacto</a>
+                <a href="/logout">Cerrar Sesión</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>Bienvenido, {{ session['username'] }}</h2>
+        <p>Aquí puedes gestionar tus actividades en jpotnian.</p>
+
+    </section>
+    <section class="dashboard-options">
+            <a href="/profile" class="button">Ver Perfil</a>
+            <a href="/chat" class="button">Ver Chat</a>
+            <a href="/my_products" class="button">Mis Productos</a>
+            <a href="/store" class="button">Tienda</a>
+    </section>
+    <!-- Publicidad Inferior -->
+<section class="ad-space">
+    <img src="{{ ad_image_1 }}" alt="Publicidad 1">
+    <img src="{{ ad_image_2 }}" alt="Publicidad 2">
+    <img src="{{ ad_image_3 }}" alt="Publicidad 3">
+</section>
+
+    <footer>
+        <p>© 2024 jpotnian. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir Programa - jpotnian</title>
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap">
+
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>Añadir Programa No Encontrado</h1>
+            <nav>
+                <a href="/">Inicio</a>
+                <a href="/about">Acerca de</a>
+                <a href="/contact">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Publicidad Superior -->
+    <div class="ad-space">
+        <!-- Aquí puedes insertar el código del anuncio -->
+        <p>Publicidad</p>
+    </div>
+
+    <!-- Sección de Añadir Programa -->
+    <section class="add-program-section">
+        <h2>El programa "{{ program_name }}" no fue encontrado en nuestra base de datos.</h2>
+        <p>Por favor, completa la información del programa para ayudar a otros usuarios en el futuro.</p>
+        <form action="/add_program" method="post" class="add-program-form">
+            <label for="name">Nombre del Programa:</label>
+            <input type="text" id="name" name="name" value="{{ program_name }}" required>
+
+            <label for="min_ram">RAM Mínima (en GB):</label>
+            <input type="number" id="min_ram" name="min_ram" step="0.1" required>
+
+            <label for="min_processor">Procesador Mínimo:</label>
+            <input type="text" id="min_processor" name="min_processor" required>
+
+            <label for="min_disk_space">Espacio en Disco Mínimo (en GB):</label>
+            <input type="number" id="min_disk_space" name="min_disk_space" step="0.1" required>
+
+            <button type="submit" class="button">Añadir Programa</button>
+        </form>
+    </section>
+
+    <!-- Publicidad Inferior -->
+    <div class="ad-space">
+        <!-- Aquí puedes insertar el código del anuncio -->
+        <p>Publicidad</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 jpotnian. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

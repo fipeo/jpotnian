@@ -1,0 +1,68 @@
+     <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap">
+
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>El chat</h1>
+            <nav>
+                <a href="/">Inicio</a>
+                <a href="/about">Acerca de</a>
+                <a href="/contact">Contacto</a>
+                {% if 'user_id' in session %}
+                    <a href="/dashboard">Dashboard</a>
+                    <a href="/logout">Cerrar Sesión</a>
+                {% else %}
+                    <a href="/login">Iniciar Sesión</a>
+                    <a href="/register">Registrarse</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+    <!-- Publicidad Inferior -->
+<section class="ad-space">
+    <img src="{{ ad_image_1 }}" alt="Publicidad 1">
+    <img src="{{ ad_image_2 }}" alt="Publicidad 2">
+    <img src="{{ ad_image_3 }}" alt="Publicidad 3">
+</section>
+
+<h1>Mis Productos</h1>
+<form method="POST">
+    <label for="name">Nombre del Producto</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="description">Descripción</label>
+    <textarea id="description" name="description" required></textarea>
+
+    <label for="image_url">URL de la Imagen</label>
+    <input type="text" id="image_url" name="image_url" required>
+
+    <label for="price">Precio Inicial</label>
+    <input type="number" step="0.01" id="price" name="price" required>
+
+    <button class='button' type="submit">Agregar Producto</button>
+</form>
+
+<h2>Productos Actuales</h2>
+<ul>
+    {% for product in products %}
+        <li>{{ product.name }} - {{ product.description }} - {{product.price}}</li>
+    {% endfor %}
+</ul>
+
+
+    <!-- Publicidad Inferior -->
+<section class="ad-space">
+    <img src="{{ ad_image_1 }}" alt="Publicidad 1">
+    <img src="{{ ad_image_2 }}" alt="Publicidad 2">
+    <img src="{{ ad_image_3 }}" alt="Publicidad 3">
+</section>
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 jpotnian. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

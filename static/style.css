@@ -1,0 +1,231 @@
+:root {
+    --black: #080808ff;
+    --gamboge: #F3A63Aff;
+    --cardinal: #B93136ff;
+    --caribbean-current: #0E6E81ff;
+    --baby-powder: #FCFFFAff;
+
+    /* Gradientes */
+    --gradient-top-right: linear-gradient(90deg, var(--black),var(--black), var(--gamboge), var(--cardinal), var(--caribbean-current),var(--gamboge),var(--black),var(--black));
+
+    /* Tamaño de fuente base */
+    --base-font-size: 13px; /* Puedes ajustar este valor para cambiar el tamaño de la fuente */
+}
+
+body {
+    background-color: var(--black);
+    color: var(--baby-powder);
+    margin: 0;
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-family: "Press Start 2P", cursive; /* Fuente estándar */
+    font-size: var(--base-font-size); /* Tamaño de la fuente controlado por variable */
+}
+
+.header {
+    background-color: var(--black);
+    color: var(--baby-powder);
+    margin-top: 10px;
+    text-align: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    --base-font-size: 14px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 20px;
+}
+
+.header h1, footer p {
+    font-family: 'Press Start 2P', cursive; /* Mantiene la fuente personalizada en encabezados y pie de página */
+    font-size: calc(var(--base-font-size) * 1.5); /* Tamaño del header ajustable con base en la variable */
+}
+
+.header nav a {
+    color: var(--baby-powder);
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header nav a:hover {
+    color: var(--gamboge);
+}
+
+.hero {
+    background: var(--gradient-top-right);
+    color: var(--baby-powder);
+    padding: 60px 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: calc(var(--base-font-size) * 1); /* Tamaño del texto en la sección hero */
+    padding-left: 0px;
+    padding-top: 20px;
+    padding-right: 0px;
+    padding-bottom: 20px;
+}
+
+.search-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.ad-space {
+    display: flex;          /* Crea un contenedor flexible que organiza su contenido en una fila por defecto */
+    justify-content: space-between; /* Espacia las imágenes uniformemente */
+    width: 100%;            /* El contenedor ocupa todo el ancho disponible */
+    height: 250px;          /* Ajusta la altura del contenedor */
+    overflow: hidden;       /* Oculta cualquier desbordamiento de las imágenes */
+    background-color: #000; /* Fondo negro por si la imagen no carga */
+    padding: 10px; /* Añade un poco de espacio alrededor de las imágenes */
+    box-shadow: 0 0 10px yellow; /* Sombra para darle profundidad */;
+}
+
+.ad-space img {
+    width: 32%;             /* Cada imagen ocupa el 32% del ancho del contenedor, dejando un 4% para el margen */
+    height: auto;           /* Mantiene la proporción de las imágenes */
+    object-fit: cover;      /* Asegura que las imágenes cubran su contenedor sin distorsionarse */
+}
+
+
+.search-bar {
+    width: 70%; /* Ancho de la barra de búsqueda, más grande ahora */
+    padding: 15px;
+    margin-bottom: 0px;
+    font-size: calc(var(--base-font-size) * 0.5);
+    font-family: 'Press Start 2P', cursive;
+    border: 2px solid var(--gamboge); /* Añade un borde para visibilidad */
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--gamboge); /* Sombra para darle profundidad */
+}
+
+.card {
+    background-color: var(--black);
+    color: var(--baby-powder);
+    border: 1px solid var(--gamboge);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--gamboge), 0 0 20px var(--gamboge);
+    margin-bottom: 20px;
+    flex: 1; /* Para que las tarjetas se redimensionen proporcionalmente */
+    margin: 10px; /* Espaciado entre tarjetas */
+    font-size: calc(var(--base-font-size) * 0.8); /* Tamaño de la fuente ajustable */
+}
+
+.results-section {
+    display: inline-grid;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+footer {
+    background-color: var(--black);
+    color: var(--baby-powder);
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+/* Estilos para la sección de chat */
+.chat-section {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: var(--black);
+    color: var(--baby-powder);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--gamboge);
+}
+
+#chat-window {
+    max-height: 400px; /* Limita la altura del contenedor de mensajes */
+    overflow-y: auto;  /* Añade scroll si el contenido supera la altura máxima */
+    background-color: var(--black);
+    border: 1px solid var(--gamboge);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.chat-message {
+    margin-bottom: 10px;
+    margin-top: 20px;
+    font-size: calc(var(--base-font-size) * 1.2); /* Tamaño de fuente ajustado para el chat */
+}
+
+#chat-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#message {
+    width: 80%;
+    padding: 10px;
+    font-size: calc(var(--base-font-size) * 1.1);
+    border: 2px solid var(--gamboge);
+    border-radius: 5px;
+    background-color: var(--black);
+    color: var(--baby-powder);
+}
+
+#message:focus {
+    outline: none;
+    border-color: var(--cardinal);
+}
+
+.button[type="submit"] {
+    background-color: var(--gamboge);
+    color: var(--black);
+    border: 2px solid var(--black);
+    padding:12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px var(--gamboge), 0 0 20px var(--black), 0 0 30px var(--gamboge);
+    margin-top: 20px; /* Espacio entre la barra de búsqueda y el botón */
+    margin-bottom: 20px;
+    font-size: calc(var(--base-font-size) * 0.8);
+}
+
+
+.button[type="submit"]:hover {
+    background-color: var(--cardinal);
+    color: var(--baby-powder);
+}
+
+.button {
+    background-color: var(--gamboge);
+    color: var(--black);
+    border: 2px solid var(--black);
+    padding:12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px var(--gamboge), 0 0 20px var(--black), 0 0 30px var(--gamboge);
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: calc(var(--base-font-size) * 0.8);
+}
+
+.button:hover {
+    background-color: var(--cardinal);
+    color: var(--baby-powder);
+}
+.dashboard-options {
+    margin-top: 10px;
+    margin-bottom: 20px ;
+}

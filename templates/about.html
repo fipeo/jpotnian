@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de - jpotnian</title>
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap">
+
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Acerca de jpotnian</h1>
+            <nav>
+                <a href="/">Inicio</a>
+                <a href="/about">Acerca de</a>
+                <a href="/contact">Contacto</a>
+                {% if 'user_id' in session %}
+                    <a href="/dashboard">Dashboard</a>
+                    <a href="/logout">Cerrar Sesión</a>
+                    <a href="/chat">Chat</a>
+                {% else %}
+                    <a href="/login">Iniciar Sesión</a>
+                    <a href="/register">Registrarse</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+<!-- Publicidad Inferior -->
+<section class="ad-space">
+    <img src="{{ ad_image_1 }}" alt="Publicidad 1">
+    <img src="{{ ad_image_2 }}" alt="Publicidad 2">
+    <img src="{{ ad_image_3 }}" alt="Publicidad 3">
+</section>
+
+
+    <!-- Sección Acerca de -->
+    <section class="about-section">
+        <h2>Nuestra Historia</h2>
+        <p>
+            jpotnian nació de la necesidad de simplificar la manera en que los usuarios verifican si su sistema es compatible con el software que desean instalar.
+            Lo que comenzó como un pequeño proyecto para resolver problemas personales se ha convertido en una herramienta poderosa que ayuda a miles de personas a optimizar sus sistemas y tomar decisiones informadas sobre qué software pueden ejecutar sin problemas.
+        </p>
+        <p>
+            Inspirados por nuestra propia frustración al instalar programas y descubrir que nuestro hardware no era compatible, decidimos crear jpotnian para que nadie más tuviera que pasar por lo mismo.
+            Con el tiempo, nuestro proyecto creció gracias a la pasión y dedicación de nuestro equipo, comprometido a hacer la tecnología más accesible y comprensible para todos.
+        </p>
+
+        <p>
+            Hoy, jpotnian sigue creciendo y evolucionando, siempre con la misión de hacer la vida digital más sencilla y eficiente para nuestros usuarios.
+        </p>
+    </section>
+
+<!-- Publicidad Inferior -->
+<section class="ad-space">
+    <img src="{{ ad_image_1 }}" alt="Publicidad 1">
+    <img src="{{ ad_image_2 }}" alt="Publicidad 2">
+    <img src="{{ ad_image_3 }}" alt="Publicidad 3">
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 jpotnian. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
